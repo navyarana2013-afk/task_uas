@@ -1,4 +1,4 @@
-#UAS Casualty Triage Pathfinder
+UAS Casualty Triage Pathfinder
 
 made this for the UAS-DTU round 2 task. rover has to find casualties on a map image, figure out priority order to visit them, and pathfind to each one using A*, then to the end point.
 
