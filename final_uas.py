@@ -83,6 +83,9 @@ def build_masks(img_bgr):
         marker_mask |= color_distance_mask(img_bgr, color)
  
     traversable = terrain_mask | marker_mask
+    trav_u8 = (traversable.astype(np.uint8)) * 255
+    trav_u8 = cv2.morphologyEx(trav_u8, cv2.MORPH_CLOSE, np.ones((9, 9), np.uint8))
+    traversable = trav_u8 > 0
     obstacle_vis = np.where(traversable, 255, 0).astype(np.uint8)
     return traversable, level_map, obstacle_vis
  
